@@ -79,7 +79,12 @@ We currently have two papers under revision.
 - A refined implementation of the original optimization [@Moyen2017] is available [on github](https://github.com/statycc/LQICM_On_C_Toy_Parser).
 - An experimental implementation of the mwp-analysis for C code is available [on github](https://github.com/statycc/pymwp).
 
-# Presentations
+# Presentations / Events
+
+## Dagstuhl's Seminar
+
+We are organizing a seminar at [Dagstuhl](https://www.dagstuhl.de/) November 7 – 12 , 2021, called ["Static Analyses of Program Flows: Types and Certificate for Complexity"](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453).
+
 
 ## 2020 Georgia Undergraduate Research Conference {#gurc2020}
 
