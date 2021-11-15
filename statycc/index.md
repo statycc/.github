@@ -12,6 +12,7 @@ documentclass: scrartcl
 papersize: letter
 geometry: margin=1in
 bibliography: bib.bib
+link-citations: true
 csl: theoretical-computer-science.csl
 header-includes:
  - \newcommand{\website}{\href{https://spots.augusta.edu/caubert/research/statyc/}{spots.augusta.edu/caubert/research/statyc/}}
@@ -66,6 +67,8 @@ This project is carried out by
     - [Thomas Seiller](https://www.seiller.org/)
     - [Thomas Rubiano](https://people.irisa.fr/Thomas.Rubiano/)
 
+![Gathering at [Schloss Dagstuhl](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453), Nov. 2021. © Schloss Dagstuhl - LZI GmbH ](pictures/dagstuhl_2021/reduced_01.jpg)
+    
 # Papers
 
 We currently have two papers under revision.
@@ -83,16 +86,20 @@ We currently have two papers under revision.
 
 ## Dagstuhl's Seminar
 
-We are organizing a seminar at [Dagstuhl](https://www.dagstuhl.de/) November 7 – 12 , 2021, called ["Static Analyses of Program Flows: Types and Certificate for Complexity"](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453).
-
+We organized a seminar at [Dagstuhl](https://www.dagstuhl.de/) November 7 – 12 , 2021, called ["Static Analyses of Program Flows: Types and Certificate for Complexity"](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453).
 
 ## 2020 Georgia Undergraduate Research Conference {#gurc2020}
 
 Assya Sellak made a presentation to the [2020 Georgia Undergraduate Research Conference](https://www.westga.edu/academics/research/our/GURC_Program.php).
 
-Abstract: 
+A similar presentation was accepted to the [2021 National Conference on Undergraduate Research](https://apps.cur.org/ncur2021/search/display_ncur.aspx?id=110859).
 
-> **Optimization Method on Programs Using Dependency Analysis and Loop Peeling Transformations**
+<details>
+<summary>Details</summary>
+
+### Abstract
+
+> **Optimization Method on Programs Using Dependency Analysis and Loop Peeling Transformations**  
 > Computer programs are written in high-level languages and translated
 into machine-code using compilers. Compilers perform a series of program
 transformation and optimizations to improve memory usage and reduce the
@@ -124,24 +131,29 @@ loop, we hope to allow for some parallel optimization. This allows to:
 > - possibly significantly speed-up programs that are distributed, i.e.,
     executed in parallel on multiple computers.
 
+### Materials
 
 The [slides](gurc/Presentation.pdf) as well as the [abstract](gurc/Abstract.pdf) are available to download.
 [The program of the conference](gurc/GURC2020Program.pdf) is available as well.
+</details>
 
-A similar presentation was accepted to the [2021 National Conference on Undergraduate Research](https://apps.cur.org/ncur2021/search/display_ncur.aspx?id=110859).
+
 
 ## Graduate Research Day 2021 {#grd2021}
 
-Both Assya Sellak and Neea Rusch had their abstract accepted to Augusta University's [Graduate Research Day ](https://www.augusta.edu/gradschool/grd.php).
+Both Assya Sellak and Neea Rusch had their abstract accepted to Augusta University's [Graduate Research Day](https://www.augusta.edu/gradschool/grd.php).
 
-### Certifying the complexity and correctness of critical software
+<details>
+<summary>Details</summary>
 
-Abstract:
+### Abstract
 
+> **Certifying the complexity and correctness of critical software**  
 > Software powers our everyday lives: from phones to daily interactions to our homes. At the same time software is fraught with bugs causing systems to behave in undesirable ways. When discussing critical software responsible for sustaining human life—such as airplanes, ventilators, and nuclear reactors—being able to guarantee correct behavior is necessary. Compilers play a vital role in the software development process by transforming programmer's source code to executable programs. They perform analysis, transformations, and optimizations to improve the performance and reliability of the resulting program. But compilers—since they are themselves pieces of software—may contain bugs. To build reliable software, we must establish the correct behavior of these intermediate tools.
 There is a colossal push to prove the correctness of such tools using mathematical abstractions such as dependency analysis, formal methods, and proof assistants. Proving the correctness allows eradicating bugs in programs and drives programmers to specify formally the intended behavior of programs while building trust and confidence in the end-result. Using dependency analysis inspired by Implicit Computational Complexity, we apply those techniques to program transformations. Among these techniques is ensuring program's variables grow within reasonable bounds thus providing a certification in term of memory footprint and possibly run-time, in addition to certifying its behavior. Implementing this analysis is one of the goals of our research.
 
 Neea's presentation is available [on-line](https://www.youtube.com/watch?v=J8QtGZgTOQM).
+</details>
 
 # References
 
@@ -159,5 +171,5 @@ Neea's presentation is available [on-line](https://www.youtube.com/watch?v=J8QtG
 https://stackoverflow.com/q/46982187/2657549
 https://webmasters.stackexchange.com/q/109954/54133
 -->
- * All my documents are under [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). Sources are available upon motivated request.
+ * All my documents are under [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). Sources are available [on-line](https://github.com/statycc/.github/tree/main/statycc).
  * You will need a `pdf` reader to consult some of the documents: I recommend choosing [an open-source `pdf` reader](https://pdfreaders.org/).
