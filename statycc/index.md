@@ -47,7 +47,7 @@ header-includes:
 # Presentation
 
 StATyCC stands for "Static Analyses of Program Flows: Types and Certificate for Complexity".
-This is a two-year international collaborative project funded by the [Thomas Jefferson Fund](https://face-foundation.org/higher-education/thomas-jefferson-fund/current-projects/) and involving the [School of Computer Science](https://www.augusta.edu/ccs/) of the University of Augusta and the [Northern Paris Computer Science Lab](https://lipn.univ-paris13.fr/en/home/) of the University of Paris 13.
+This is a two-year international collaborative project funded by the [Thomas Jefferson Fund](https://face-foundation.org/higher-education/thomas-jefferson-fund/previous-projects/) and involving the [School of Computer Science](https://www.augusta.edu/ccs/) of the University of Augusta and the [Northern Paris Computer Science Lab](https://lipn.univ-paris13.fr/en/home/) of the University of Paris 13.
 
 The project aims at providing new static analysis tools based on theoretical results from Implicit computational complexity, building on previous work of Moyen, Rubiano and Seiller [@Moyen2017].
 It revolves around certified compositional analysis of source code, loop optimization through an original dependency model.
