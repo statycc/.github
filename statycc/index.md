@@ -1,6 +1,6 @@
 ---
 title: StATyCC
-subtitle: "Static Analyses of Program Flows: Types and Certificate for Complexity"
+subtitle: "Static Analyses of Program Flows: Types and Certificates for Complexity"
 lang: en
 keywords:
     - Computer Science
@@ -46,7 +46,7 @@ header-includes:
 
 # Presentation
 
-StATyCC stands for "Static Analyses of Program Flows: Types and Certificate for Complexity".
+StATyCC stands for "Static Analyses of Program Flows: Types and Certificates for Complexity".
 This is a two-year international collaborative project funded by the [Thomas Jefferson Fund](https://face-foundation.org/higher-education/thomas-jefferson-fund/previous-projects/) and involving the [School of Computer Science](https://www.augusta.edu/ccs/) of the University of Augusta and the [Northern Paris Computer Science Lab](https://lipn.univ-paris13.fr/en/home/) of the University of Paris 13.
 
 The project aims at providing new static analysis tools based on theoretical results from Implicit computational complexity, building on previous work of Moyen, Rubiano and Seiller [@Moyen2017].
@@ -86,7 +86,7 @@ We currently have two papers under revision.
 
 ## Dagstuhl's Seminar
 
-We organized a seminar at [Dagstuhl](https://www.dagstuhl.de/) November 7 – 12 , 2021, called ["Static Analyses of Program Flows: Types and Certificate for Complexity"](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453).
+We organized a seminar at [Dagstuhl](https://www.dagstuhl.de/) November 7 – 12 , 2021, called ["Static Analyses of Program Flows: Types and Certificates for Complexity"](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453).
 
 ## 2020 Georgia Undergraduate Research Conference {#gurc2020}
 
@@ -161,7 +161,7 @@ Neea's presentation is available [on-line](https://www.youtube.com/watch?v=J8QtG
 :::
 
 
-# Miscellaneous
+# Miscellaneous{.unlisted}
 
  * Download [a `pdf` version](index.pdf) of this page. 
  * Contact: [caubert@augusta.edu](mailto:caubert@augusta.edu)
@@ -171,5 +171,5 @@ Neea's presentation is available [on-line](https://www.youtube.com/watch?v=J8QtG
 https://stackoverflow.com/q/46982187/2657549
 https://webmasters.stackexchange.com/q/109954/54133
 -->
- * All my documents are under [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). Sources are available [on-line](https://github.com/statycc/.github/tree/main/statycc).
+ * All my documents are under [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). Sources are available upon motivated request.
  * You will need a `pdf` reader to consult some of the documents: I recommend choosing [an open-source `pdf` reader](https://pdfreaders.org/).
