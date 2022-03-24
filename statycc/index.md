@@ -71,11 +71,22 @@ This project is carried out by
     
 # Papers
 
-We currently have two papers under revision.
+We currently have two papers submitted, and one article in preparation.
 
+## Submitted 
+
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity. 2022. [⟨hal-03596285v1⟩](https://hal.archives-ouvertes.fr/hal-03596285v1), submitted to [FSCD 2022](https://www.cs.tau.ac.il/~nachumd/FSCD/).
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Realizing Implicit Computational Complexity. 2022. [⟨hal-03603510v1⟩](https://hal.archives-ouvertes.fr/hal-03603510v1), submitted to [Types 2022](https://types22.inria.fr/).
+
+## In Preparation
+
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Leveraging Implicit Computational Complexity to Parallelize Efficiently. 2022. 
+
+
+<!--
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. An extended and more practical mwp flow analysis. 2021. [⟨hal-03269096v2⟩](https://hal.archives-ouvertes.fr/hal-03269096)
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. An implementation of flow calculus for complexity analysis (tool paper). 2021. [⟨hal-03269121v2⟩](https://hal.archives-ouvertes.fr/hal-03269121)
-
+-->
 
 # Tools
 
@@ -153,6 +164,26 @@ Both Assya Sellak and Neea Rusch had their abstract accepted to Augusta Universi
 There is a colossal push to prove the correctness of such tools using mathematical abstractions such as dependency analysis, formal methods, and proof assistants. Proving the correctness allows eradicating bugs in programs and drives programmers to specify formally the intended behavior of programs while building trust and confidence in the end-result. Using dependency analysis inspired by Implicit Computational Complexity, we apply those techniques to program transformations. Among these techniques is ensuring program's variables grow within reasonable bounds thus providing a certification in term of memory footprint and possibly run-time, in addition to certifying its behavior. Implementing this analysis is one of the goals of our research.
 
 Neea's presentation is available [on-line](https://www.youtube.com/watch?v=J8QtGZgTOQM).
+</details>
+
+
+## Graduate Research Day 2022 {#grd2022}
+
+Neea Rusch had her abstract accepted to Augusta University's [Graduate Research Day](https://www.augusta.edu/gradschool/grd.php).
+
+<details>
+<summary>Details</summary>
+
+### Abstract
+
+> **Semantic-preserving optimization algorithm for automatic program parallelization**
+
+> Advanced and resource-intensive computation relies on continuous rise in processing power. Since the 1970s, Moore's law accurately predicted this growth would be achieved through hardware improvements, but this observation is becoming progressively obsolete. Alternative approaches are needed to maintain increase in efficiency. Parallelization is a technique in which larger computational problem is divided into smaller tasks, which are then executed simultaneously, reducing overall time to completion. Specialized software and algorithms are required to enable parallelization.
+>
+> This research presents a novel algorithm for automatic program parallelization based on loop splitting. In programming, loop statements are used for carrying out repeated computation, but when used extensively or carelessly, will produce performance inefficiencies. Using a graph-based variable dependency analysis, the algorithm detects opportunities for splitting loops into smaller, parallelizable loops; then automatically applies this optimization. Additionally, the algorithm guarantees the preservation of program semantics post-transformation. We hypothesize this algorithm, when combined with OpenMP--an existing state-of-the-art multiprocessing tool--will provide noticeable performance gains for resource-intensive computational tasks. An open-source tool, pyalp, implementing this algorithm on C programs, is currently being developed to demonstrate and measure its efficiency in practice.
+
+
+Neea's poster is available [on-line](poster/2022_GRD_Neea.pdf).
 </details>
 
 # References
