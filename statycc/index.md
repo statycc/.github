@@ -1,6 +1,6 @@
 ---
 title: StATyCC
-subtitle: "Static Analyses of Program Flows: Types and Certificate for Complexity"
+subtitle: "Static Analyses of Program Flows: Types and Certificates for Complexity"
 lang: en
 keywords:
     - Computer Science
@@ -46,7 +46,7 @@ header-includes:
 
 # Presentation
 
-StATyCC stands for "Static Analyses of Program Flows: Types and Certificate for Complexity".
+StATyCC stands for "Static Analyses of Program Flows: Types and Certificates for Complexity".
 This is a two-year international collaborative project funded by the [Thomas Jefferson Fund](https://face-foundation.org/higher-education/thomas-jefferson-fund/previous-projects/) and involving the [School of Computer Science](https://www.augusta.edu/ccs/) of the University of Augusta and the [Northern Paris Computer Science Lab](https://lipn.univ-paris13.fr/en/home/) of the University of Paris 13.
 
 The project aims at providing new static analysis tools based on theoretical results from Implicit computational complexity, building on previous work of Moyen, Rubiano and Seiller [@Moyen2017].
@@ -97,7 +97,7 @@ We currently have two papers submitted, and one article in preparation.
 
 ## Dagstuhl's Seminar
 
-We organized a seminar at [Dagstuhl](https://www.dagstuhl.de/) November 7 – 12 , 2021, called ["Static Analyses of Program Flows: Types and Certificate for Complexity"](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453).
+We organized a seminar at [Dagstuhl](https://www.dagstuhl.de/) November 7 – 12 , 2021, called ["Static Analyses of Program Flows: Types and Certificates for Complexity"](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453).
 
 ## 2020 Georgia Undergraduate Research Conference {#gurc2020}
 
@@ -177,7 +177,7 @@ Neea Rusch had her abstract accepted to Augusta University's [Graduate Research 
 ### Abstract
 
 > **Semantic-preserving optimization algorithm for automatic program parallelization**
-
+>
 > Advanced and resource-intensive computation relies on continuous rise in processing power. Since the 1970s, Moore's law accurately predicted this growth would be achieved through hardware improvements, but this observation is becoming progressively obsolete. Alternative approaches are needed to maintain increase in efficiency. Parallelization is a technique in which larger computational problem is divided into smaller tasks, which are then executed simultaneously, reducing overall time to completion. Specialized software and algorithms are required to enable parallelization.
 >
 > This research presents a novel algorithm for automatic program parallelization based on loop splitting. In programming, loop statements are used for carrying out repeated computation, but when used extensively or carelessly, will produce performance inefficiencies. Using a graph-based variable dependency analysis, the algorithm detects opportunities for splitting loops into smaller, parallelizable loops; then automatically applies this optimization. Additionally, the algorithm guarantees the preservation of program semantics post-transformation. We hypothesize this algorithm, when combined with OpenMP--an existing state-of-the-art multiprocessing tool--will provide noticeable performance gains for resource-intensive computational tasks. An open-source tool, pyalp, implementing this algorithm on C programs, is currently being developed to demonstrate and measure its efficiency in practice.
@@ -195,7 +195,7 @@ Neea's poster is available [on-line](poster/2022_GRD_Neea.pdf).
 :::
 
 
-# Miscellaneous
+# Miscellaneous{.unlisted}
 
  * Download [a `pdf` version](index.pdf) of this page. 
  * Contact: [caubert@augusta.edu](mailto:caubert@augusta.edu)
@@ -205,5 +205,5 @@ Neea's poster is available [on-line](poster/2022_GRD_Neea.pdf).
 https://stackoverflow.com/q/46982187/2657549
 https://webmasters.stackexchange.com/q/109954/54133
 -->
- * All my documents are under [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). Sources are available [on-line](https://github.com/statycc/.github/tree/main/statycc).
+ * All my documents are under [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). Sources are available upon motivated request.
  * You will need a `pdf` reader to consult some of the documents: I recommend choosing [an open-source `pdf` reader](https://pdfreaders.org/).
