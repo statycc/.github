@@ -185,7 +185,7 @@ Neea Rusch had her abstract accepted to Augusta University's [Graduate Research 
 
 Neea's poster is available [on-line](poster/2022_GRD_Neea.pdf).
 
-![Members of the School of Cyber and Computer Sciences School at Graduate Research Day (Neea and Clément are second and third starting from right)](pictures/graduate_research_day_2022/grd_2022.jpg)
+![Pavan Poudel, Neea, Clément, Ahmed Aleroud and Nour Alhussien at Graduate Research Day](pictures/graduate_research_day_2022/grd_2022.jpg)
 
 </details>
 
