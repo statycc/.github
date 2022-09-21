@@ -96,7 +96,7 @@ We currently have two papers accepted, and one article under revision.
 
 # Presentations / Events
 
-## {#splash2022}
+## SLASH's Doctoral Symposium {#splash2022}
 
 Neea will give a presentation at [SPLASH 2022](https://2022.splashcon.org/)'s [Doctoral Symposium](https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium).
 
