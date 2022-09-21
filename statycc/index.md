@@ -80,7 +80,7 @@ We currently have two papers accepted, and one article under revision.
 
 ## Under Revision
 
-- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller.  A Novel Loop Fission Technique Inspired by Implicit Computational Complexity. 2022. [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387)
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller.  Distributing and Parallelizing Non-canonical Loops. 2022. [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387). This paper comes with an artifact available on [zenodo](https://zenodo.org/record/7080145) as a [docker](https://www.docker.com/) image, to reproduce the results of [our benchmarkings](https://github.com/statycc/loop-fission).
 
 
 <!--
@@ -92,8 +92,13 @@ We currently have two papers accepted, and one article under revision.
 
 - A refined implementation of the original optimization [@Moyen2017] is available [on github](https://github.com/statycc/LQICM_On_C_Toy_Parser).
 - An experimental implementation of the mwp-analysis for C code is available [on github](https://github.com/statycc/pymwp).
+- The "Loop Fission Benchmarks", hosted [on gihtub](https://github.com/statycc/loop-fission), experimentally sustain the claims made in *Distributing and Parallelizing Non-canonical Loops*.
 
 # Presentations / Events
+
+## {#splash2022}
+
+Neea will give a presentation at [SPLASH 2022](https://2022.splashcon.org/)'s [Doctoral Symposium](https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium).
 
 ## Types 2022 {#types2022}
 
@@ -109,7 +114,6 @@ We had [an abstract](https://hal.archives-ouvertes.fr/hal-03603510) accepted the
 > This abstract aims at presenting an ongoing effort to apply a novel typing mechanism stemming from Implicit Computational Complexity (ICC), that tracks dependencies between variables in three different ways, at different stages of maturation. The first and third projects bend the original typing discipline to gain finer-grained view on statements independence, to optimize loops by hoisting invariant and by splitting loops "horizontally" to parallelize them more efficiently. The second project refines and implements the original analysis to obtain a fast, modular static analyzer. All three projects aims at pushing the original type system, inspired from ICC, to its limits, to assess how ICC can in practice leads to original, sometimes orthogonal, approaches. 
 
 Neea's slides are available [on-line](slides/TYPES_2022.pdf).
-
 </details>
 
 ## Graduate Research Day 2022 {#grd2022}
