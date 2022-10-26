@@ -71,9 +71,12 @@ This project is carried out by
     
 # Papers
 
+<!--
 We currently have two papers accepted, and one article under revision.
 
+
 ## Accepted
+-->
 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity. [FSCD 2022](https://www.cs.tau.ac.il/~nachumd/FSCD/) 2022, [10.4230/LIPIcs.FSCD.2022.26](https://doi.org/10.4230/LIPIcs.FSCD.2022.26)
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Realizing Implicit Computational Complexity. 2022. [⟨hal-03603510v1⟩](https://hal.archives-ouvertes.fr/hal-03603510v1), accepted to [Types 2022](https://types22.inria.fr/).
