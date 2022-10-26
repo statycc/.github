@@ -47,7 +47,7 @@ header-includes:
 # Presentation
 
 StATyCC stands for "Static Analyses of Program Flows: Types and Certificates for Complexity".
-This is a two-year international collaborative project funded by the [Thomas Jefferson Fund](https://face-foundation.org/higher-education/thomas-jefferson-fund/previous-projects/) and involving the [School of Computer Science](https://www.augusta.edu/ccs/) of the University of Augusta and the [Northern Paris Computer Science Lab](https://lipn.univ-paris13.fr/en/home/) of the University of Paris 13.
+This is a two-year international collaborative project funded by the [Transatlantic Research Partnership](https://face-foundation.org/transatlantic-study-research/transatlantic-research-partnership/previous-projects/) and involving the [School of Computer Science](https://www.augusta.edu/ccs/) of the University of Augusta and the [Northern Paris Computer Science Lab](https://lipn.univ-paris13.fr/en/home/) of the University of Paris 13.
 
 The project aims at providing new static analysis tools based on theoretical results from Implicit computational complexity, building on previous work of Moyen, Rubiano and Seiller [@Moyen2017].
 It revolves around certified compositional analysis of source code, loop optimization through an original dependency model.
@@ -77,11 +77,13 @@ We currently have two papers accepted, and one article under revision.
 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity. [FSCD 2022](https://www.cs.tau.ac.il/~nachumd/FSCD/) 2022, [10.4230/LIPIcs.FSCD.2022.26](https://doi.org/10.4230/LIPIcs.FSCD.2022.26)
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Realizing Implicit Computational Complexity. 2022. [⟨hal-03603510v1⟩](https://hal.archives-ouvertes.fr/hal-03603510v1), accepted to [Types 2022](https://types22.inria.fr/).
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller.  Distributing and Parallelizing Non-canonical Loops. 2023. [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387), accepted to [VMCAI 2023](https://vmcai-2023.github.io/). This paper comes with an artifact available on [zenodo](https://zenodo.org/record/7080145) to reproduce the results of [our benchmarkings](https://github.com/statycc/loop-fission). 
+
+<!--
 
 ## Under Revision
 
-- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller.  Distributing and Parallelizing Non-canonical Loops. 2022. [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387). This paper comes with an artifact available on [zenodo](https://zenodo.org/record/7080145) as a [docker](https://www.docker.com/) image, to reproduce the results of [our benchmarkings](https://github.com/statycc/loop-fission).
-
+-->
 
 <!--
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. An extended and more practical mwp flow analysis. 2021. [⟨hal-03269096v2⟩](https://hal.archives-ouvertes.fr/hal-03269096)
@@ -113,7 +115,7 @@ We had [an abstract](https://hal.archives-ouvertes.fr/hal-03603510) accepted the
 >
 > This abstract aims at presenting an ongoing effort to apply a novel typing mechanism stemming from Implicit Computational Complexity (ICC), that tracks dependencies between variables in three different ways, at different stages of maturation. The first and third projects bend the original typing discipline to gain finer-grained view on statements independence, to optimize loops by hoisting invariant and by splitting loops "horizontally" to parallelize them more efficiently. The second project refines and implements the original analysis to obtain a fast, modular static analyzer. All three projects aims at pushing the original type system, inspired from ICC, to its limits, to assess how ICC can in practice leads to original, sometimes orthogonal, approaches. 
 
-Neea's slides are available [on-line](slides/TYPES_2022.pdf).
+Neea's slides are available [on-line](slides/TYPES_2022.pdf), and the presentation was [recorded](https://youtu.be/L68Gs5ak0z4).
 </details>
 
 ## Graduate Research Day 2022 {#grd2022}
