@@ -73,22 +73,27 @@ This project is carried out by
 
 <!--
 We currently have two papers accepted, and one article under revision.
-
+-->
 
 ## Accepted
--->
+
+### Conferences
 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity. [FSCD 2022](https://www.cs.tau.ac.il/~nachumd/FSCD/) 2022, [10.4230/LIPIcs.FSCD.2022.26](https://doi.org/10.4230/LIPIcs.FSCD.2022.26)
-- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Realizing Implicit Computational Complexity. 2022. [⟨hal-03603510v1⟩](https://hal.archives-ouvertes.fr/hal-03603510v1), accepted to [Types 2022](https://types22.inria.fr/).
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller.  Distributing and Parallelizing Non-canonical Loops. 2023. [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387), accepted to [VMCAI 2023](https://vmcai-2023.github.io/). This paper comes with an artifact available on [zenodo](https://zenodo.org/record/7080145) to reproduce the results of [our benchmarkings](https://github.com/statycc/loop-fission). 
 
-<!--
+### Workshops
 
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Realizing Implicit Computational Complexity. 2022. [⟨hal-03603510v1⟩](https://hal.archives-ouvertes.fr/hal-03603510v1), accepted to [Types 2022](https://types22.inria.fr/).
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Certifying Complexity Analysis. 2022. Accepted to [CoqPL 2023](https://popl23.sigplan.org/home/CoqPL-2023).
+
+### Submitted
+
+- Clément Aubert, Thomas Rubiano, Neea Rusch, and Thomas Seiller. pymwp: A Tool for Guaranteeing Complexity Bounds for C Programs. 2022. Submitted to [TACAS 2023](https://etaps.org/2023/tacas).
+
+
+<!--
 ## Under Revision
-
--->
-
-<!--
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. An extended and more practical mwp flow analysis. 2021. [⟨hal-03269096v2⟩](https://hal.archives-ouvertes.fr/hal-03269096)
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. An implementation of flow calculus for complexity analysis (tool paper). 2021. [⟨hal-03269121v2⟩](https://hal.archives-ouvertes.fr/hal-03269121)
 -->
@@ -101,13 +106,26 @@ We currently have two papers accepted, and one article under revision.
 
 # Presentations / Events
 
+## POPL 2023
+
+Neea will give two talks at [POPL 2023](https://popl23.sigplan.org/):
+
+- *Distributing and Parallelizing Non-canonical Loops* during [VMCAI 2023](https://popl23.sigplan.org/home/VMCAI-2023),
+- *Certifying Complexity Analysis* during [CoqPL 2023](https://popl23.sigplan.org/home/CoqPL-2023).
+
 ## SLASH's Doctoral Symposium {#splash2022}
 
 Neea will give a presentation at [SPLASH 2022](https://2022.splashcon.org/)'s [Doctoral Symposium](https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium).
 
+## FSCD 2022 {#fscd2022}
+
+Thomas Seiller presented our work, [_mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity_](https://doi.org/10.4230/LIPIcs.FSCD.2022.26) at [FSCD 2022](https://www.cs.tau.ac.il/~nachumd/FSCD/).
+The slides are available [on-line](slides/FSCD_2022.pdf).
+
 ## Types 2022 {#types2022}
 
 We had [an abstract](https://hal.archives-ouvertes.fr/hal-03603510) accepted the [28th International Conference on Types for Proofs and Programs](https://types22.inria.fr).
+Neea's slides are available [on-line](slides/TYPES_2022.pdf), and the presentation was [recorded](https://youtu.be/L68Gs5ak0z4).
 
 <details>
 <summary>Details</summary>
