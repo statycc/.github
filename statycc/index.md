@@ -87,7 +87,13 @@ We currently have two papers accepted, and one article under revision.
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Realizing Implicit Computational Complexity. 2022. [⟨hal-03603510v1⟩](https://hal.archives-ouvertes.fr/hal-03603510v1), accepted to [Types 2022](https://types22.inria.fr/).
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Certifying Complexity Analysis. 2022. Accepted to [CoqPL 2023](https://popl23.sigplan.org/home/CoqPL-2023).
 
-### Submitted
+
+### Symposium
+
+- Neea Rusch. Formally Verified Resource Bounds Through Implicit Computational Complexity. 2022. Accepted to [SPLASH Doctoral Symposium](https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium#splash-doctoral-symposium).
+
+
+## Submitted
 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, and Thomas Seiller. pymwp: A Tool for Guaranteeing Complexity Bounds for C Programs. 2022. Submitted to [TACAS 2023](https://etaps.org/2023/tacas).
 
