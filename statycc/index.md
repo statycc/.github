@@ -8,48 +8,19 @@ keywords:
     - Undergraduate Research
     - Augusta University
     - University Paris 13
-documentclass: scrartcl
-papersize: letter
-geometry: margin=1in
-header-includes:
- - \newcommand{\website}{\href{https://spots.augusta.edu/caubert/research/statyc/}{spots.augusta.edu/caubert/research/statyc/}}
- - \usepackage{titling}
- - \makeatletter\def\@maketitle{\centering{\usekomafont{title}{\huge \@title\par}\vskip .3em \usekomafont{subtitle}{\@subtitle\par}\vskip .3em}}\makeatother
- - \addtokomafont{section}{\centering}
- - \usepackage{xcolor}
- - \definecolor{links}{HTML}{2e4683}
- - \hypersetup{colorlinks=true, allcolors=links}
- - \linespread{1.1}
- - \usepackage{lastpage}
- - \usepackage{fancyhdr}
- - \pagestyle{fancy}
- - \fancypagestyle{plain}{
-        \lfoot{\website}
-        \cfoot{}
-        \rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}}
-        \lhead{}
-        \rhead{}
-        \renewcommand{\headrulewidth}{0pt}
-    }
- - \lhead{\textbf{Presentation}}
- - \rhead{\thetitle}
- - \lfoot{\website}
- - \cfoot{}
- - \rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}}
- - \renewcommand{\footrulewidth}{0.4pt}
- - \renewcommand{\headrulewidth}{0.4pt}
- - \renewcommand{\linethickness}{0.4pt}
 ---
 
 # Presentation
 
 StATyCC stands for "Static Analyses of Program Flows: Types and Certificates for Complexity".
-This is a two-year international collaborative project funded by the [Transatlantic Research Partnership](https://face-foundation.org/transatlantic-study-research/transatlantic-research-partnership/previous-projects/) and involving the [School of Computer Science](https://www.augusta.edu/ccs/) of the University of Augusta and the [Northern Paris Computer Science Lab](https://lipn.univ-paris13.fr/en/home/) of the University of Paris 13.
+This is an international collaborative project funded by the [Transatlantic Research Partnership](https://face-foundation.org/transatlantic-study-research/transatlantic-research-partnership/previous-projects/) and involving the [School of Computer Science](https://www.augusta.edu/ccs/) of the University of Augusta and the [Northern Paris Computer Science Lab](https://lipn.univ-paris13.fr/en/home/) of the University of Paris 13.
 
 The project aims at providing new static analysis tools based on theoretical results from Implicit computational complexity, building on previous work of [Moyen, Rubiano and Seiller](https://dx.doi.org/10.1007/978-3-319-68167-2_7).
 It revolves around certified compositional analysis of source code, loop optimization through an original dependency model.
-Application to parallel optimization and intermediate representation are currently being investigated.
+Application to parallel optimization and intermediate representation are also investigated.
 
+The most up-to-date document describing our hypothesis and results are [Neea Rusch's Research proposal](https://nkrusch.github.io/posts/proposal), ["_Certifying Implicit Computational Complexity_"](https://nkrusch.github.io/files/proposal.pdf).
+More context can be found in her [PhD research proficiency examination](https://nkrusch.github.io/posts/exam), ["_On Implicit Computational Complexity with Applications to Real-World Programs_"](https://nkrusch.github.io/files/exam_doc.pdf).
 
 # Members
 
@@ -67,10 +38,6 @@ This project is carried out by
 ![Gathering at [Schloss Dagstuhl](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453), Nov. 2021. © Schloss Dagstuhl - LZI GmbH ](pictures/dagstuhl_2021/reduced_01.jpg)
     
 # Papers
-
-<!--
-We currently have two papers accepted, and one article under revision.
--->
 
 ## Accepted
 
