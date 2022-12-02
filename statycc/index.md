@@ -11,9 +11,6 @@ keywords:
 documentclass: scrartcl
 papersize: letter
 geometry: margin=1in
-bibliography: bib.bib
-link-citations: true
-csl: theoretical-computer-science.csl
 header-includes:
  - \newcommand{\website}{\href{https://spots.augusta.edu/caubert/research/statyc/}{spots.augusta.edu/caubert/research/statyc/}}
  - \usepackage{titling}
@@ -49,7 +46,7 @@ header-includes:
 StATyCC stands for "Static Analyses of Program Flows: Types and Certificates for Complexity".
 This is a two-year international collaborative project funded by the [Transatlantic Research Partnership](https://face-foundation.org/transatlantic-study-research/transatlantic-research-partnership/previous-projects/) and involving the [School of Computer Science](https://www.augusta.edu/ccs/) of the University of Augusta and the [Northern Paris Computer Science Lab](https://lipn.univ-paris13.fr/en/home/) of the University of Paris 13.
 
-The project aims at providing new static analysis tools based on theoretical results from Implicit computational complexity, building on previous work of Moyen, Rubiano and Seiller [@Moyen2017].
+The project aims at providing new static analysis tools based on theoretical results from Implicit computational complexity, building on previous work of [Moyen, Rubiano and Seiller](https://dx.doi.org/10.1007/978-3-319-68167-2_7).
 It revolves around certified compositional analysis of source code, loop optimization through an original dependency model.
 Application to parallel optimization and intermediate representation are currently being investigated.
 
@@ -106,7 +103,7 @@ We currently have two papers accepted, and one article under revision.
 
 # Tools
 
-- A refined implementation of the original optimization [@Moyen2017] is available [on github](https://github.com/statycc/LQICM_On_C_Toy_Parser).
+- A refined implementation of [the original optimization](https://dx.doi.org/10.1007/978-3-319-68167-2_7) is available [on github](https://github.com/statycc/LQICM_On_C_Toy_Parser).
 - An experimental implementation of the mwp-analysis for C code is available [on github](https://github.com/statycc/pymwp).
 - The "Loop Fission Benchmarks", hosted [on gihtub](https://github.com/statycc/loop-fission), experimentally sustain the claims made in *Distributing and Parallelizing Non-canonical Loops*.
 
@@ -131,7 +128,6 @@ The slides are available [on-line](slides/FSCD_2022.pdf).
 ## Types 2022 {#types2022}
 
 We had [an abstract](https://hal.archives-ouvertes.fr/hal-03603510) accepted the [28th International Conference on Types for Proofs and Programs](https://types22.inria.fr).
-Neea's slides are available [on-line](slides/TYPES_2022.pdf), and the presentation was [recorded](https://youtu.be/L68Gs5ak0z4).
 
 <details>
 <summary>Details</summary>
@@ -219,7 +215,7 @@ needed to run once and successively move commands that need to run more
 than once, but not as many times as the loop runs. These fall short on
 some structures, mainly because they limit the scope of the analysis to
 individual operations, rather than considering sequences of operations
-as a whole. Thanks to quasi-interpretation [@Moyen2017] coming from Implicit Computational
+as a whole. Thanks to quasi-interpretation coming from Implicit Computational
 Complexity, new ways of detecting invariant sequences of commands inside
 loops have been developed. We extend this work along two axes: We allow
 for more structures, including `for`{.md}, `do...while`{.md}, loops with
@@ -235,21 +231,9 @@ The [slides](gurc/Presentation.pdf) as well as the [abstract](gurc/Abstract.pdf)
 </details>
 
 
-# References
-
-::: {#refs}
-:::
-
-
 # Miscellaneous{.unlisted}
 
- * Download [a `pdf` version](index.pdf) of this page. 
  * Contact: [caubert@augusta.edu](mailto:caubert@augusta.edu)
  * Created with [debian](https://www.debian.org/), [pandoc](https://pandoc.org/) and [latex](https://www.latex-project.org/).
-<!--,
- [HTML5](https://validator.w3.org/check/referer) and [CSS3](https://jigsaw.w3.org/css-validator/check/referer) valid,
-https://stackoverflow.com/q/46982187/2657549
-https://webmasters.stackexchange.com/q/109954/54133
--->
  * All my documents are under [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). Sources are available upon motivated request.
  * You will need a `pdf` reader to consult some of the documents: I recommend choosing [an open-source `pdf` reader](https://pdfreaders.org/).
