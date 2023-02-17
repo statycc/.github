@@ -82,7 +82,7 @@ Neea Rusch gave two talks at [POPL 2023](https://popl23.sigplan.org/):
 
 ## SLASH's Doctoral Symposium {#splash2022}
 
-Neea Rusch gave a presentation at [SPLASH 2022](https://2022.splashcon.org/)'s [Doctoral Symposium](https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium).
+Neea Rusch presented [*Formally Verified Resource Bounds through Implicit Computational Complexity*](https://doi.org/10.1145/3563768.3565545) at [SPLASH 2022](https://2022.splashcon.org/)'s [Doctoral Symposium](https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium), the slides are available [on-line](slides/SPLASH_2022.pdf).
 
 ## FSCD 2022 {#fscd2022}
 
