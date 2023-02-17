@@ -35,7 +35,7 @@ This project is carried out by
     - [Thomas Seiller](https://www.seiller.org/)
     - [Thomas Rubiano](https://people.irisa.fr/Thomas.Rubiano/)
 
-![Gathering at [Schloss Dagstuhl](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453), Nov. 2021. © Schloss Dagstuhl - LZI GmbH ](pictures/dagstuhl_2021/reduced_01.jpg)
+![Gathering at [Schloss Dagstuhl](https://dagstuhl.de/21453), Nov. 2021. © Schloss Dagstuhl - LZI GmbH ](pictures/dagstuhl_2021/reduced_01.jpg)
     
 # Papers
 
@@ -51,18 +51,15 @@ This project is carried out by
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Realizing Implicit Computational Complexity. 2022. [⟨hal-03603510v1⟩](https://hal.archives-ouvertes.fr/hal-03603510v1), accepted to [Types 2022](https://types22.inria.fr/).
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Certifying Complexity Analysis. 2022. Accepted to [CoqPL 2023](https://popl23.sigplan.org/home/CoqPL-2023).
 
-
 ### Symposium
 
-- Neea Rusch. Formally Verified Resource Bounds Through Implicit Computational Complexity. 2022. Accepted to [SPLASH Doctoral Symposium](https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium#splash-doctoral-symposium).
+- Neea Rusch.  Formally Verified Resource Bounds through Implicit Computational Complexity. [SPLASH Companion 2022]((https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium#splash-doctoral-symposium)), [10.1145/3563768.3565545](https://doi.org/10.1145/3563768.3565545).
 
-
+<!--
 ## Submitted
 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, and Thomas Seiller. pymwp: A Tool for Guaranteeing Complexity Bounds for C Programs. 2022. Submitted to [TACAS 2023](https://etaps.org/2023/tacas).
 
-
-<!--
 ## Under Revision
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. An extended and more practical mwp flow analysis. 2021. [⟨hal-03269096v2⟩](https://hal.archives-ouvertes.fr/hal-03269096)
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. An implementation of flow calculus for complexity analysis (tool paper). 2021. [⟨hal-03269121v2⟩](https://hal.archives-ouvertes.fr/hal-03269121)
@@ -132,7 +129,7 @@ Neea's poster is available [on-line](poster/2022_GRD_Neea.pdf).
 
 ## Dagstuhl's Seminar
 
-We organized a seminar at [Dagstuhl](https://www.dagstuhl.de/) November 7 – 12 , 2021, called ["Static Analyses of Program Flows: Types and Certificates for Complexity"](https://www.dagstuhl.de/en/program/calendar/evhp/?semnr=21453).
+We organized a seminar at [Dagstuhl](https://www.dagstuhl.de/) November 7 – 12 , 2021, called ["Static Analyses of Program Flows: Types and Certificates for Complexity"](https://dagstuhl.de/21453).
 
 ## Graduate Research Day 2021 {#grd2021}
 
