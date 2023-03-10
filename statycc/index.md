@@ -73,6 +73,26 @@ This project is carried out by
 
 # Presentations / Events
 
+## SCOT 2023
+
+Neea Rusch gave a talk at the [SCOT seminar](http://www.cs.unibo.it/~dallago/SCOSEM/).
+
+<details>
+<summary>Details</summary>
+
+### Abstract
+
+> **mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity**
+> Implicit Computational Complexity (ICC) drives better understanding of complexity classes, but it also guides the development of resources-aware languages and static source code analyzers. Among the methods developed, the mwp-flow analysis certifies polynomial bounds on the size of the values manipulated by an imperative program. This result is obtained by bounding the transitions between states instead of focusing on states in isolation, as most static analyzers do, and is not concerned with termination or tight bounds on values. Those differences, along with its built-in compositionality, make the mwp-flow analysis a good target for determining how ICC-inspired techniques diverge compared with more traditional static analysis methods. This paper's contributions are three-fold: we fine-tune the internal machinery of the original analysis to make it tractable in practice; we extend the analysis to function calls and leverage its machinery to compute the result of the analysis efficiently; and we implement the resulting analysis as a lightweight tool to automatically perform data-size analysis of C programs. This documented effort prepares and enables the development of certified complexity analysis, by transforming a costly analysis into a tractable program, that furthermore decorrelates the problem of deciding if a bound exist with the problem of computing it.  
+> Paper related to this talk: https://drops.dagstuhl.de/opus/volltexte/2022/16307/  
+> (joint work with Clément Aubert, Thomas Rubiano and Thomas Seiller)
+
+Neea Rusch's slides are available [on-line](slides/SCOT_2023.pdf).
+</details>
+
+
+SCOT_2023.pdf
+
 ## POPL 2023
 
 Neea Rusch gave two talks at [POPL 2023](https://popl23.sigplan.org/):
