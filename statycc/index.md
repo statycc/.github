@@ -94,7 +94,7 @@ Neea Rusch's slides are available [on-line](slides/SCOT_2023.pdf).
 
 Neea Rusch gave two talks at [POPL 2023](https://popl23.sigplan.org/):
 
-- [*Distributing and Parallelizing Non-canonical Loops*](https://doi.org/10.1007/978-3-031-24950-1_1) during [VMCAI 2023](https://popl23.sigplan.org/home/VMCAI-2023), the slides are available [on-line](slides/VMCAI_2023.pdf).
+- [*Distributing and Parallelizing Non-canonical Loops*](https://doi.org/10.1007/978-3-031-24950-1_1) during [VMCAI 2023](https://popl23.sigplan.org/home/VMCAI-2023), the slides are available [on-line](slides/VMCAI_2023.pdf), and the presentation was [recorded](https://youtu.be/wZdIblfz6u4).
 - [*Certifying Complexity Analysis*](https://popl23.sigplan.org/details?action-call-with-get-request-type=1&caaf60ffd2c0403395aa7ef4e9196b86action_174265066106e13feef06df9cd37baaa09a5131ef8c=1&__ajax_runtime_request__=1&context=POPL-2023&track=CoqPL-2023-papers&urlKey=2&decoTitle=Certifying-Complexity-Analysis) during [CoqPL 2023](https://popl23.sigplan.org/home/CoqPL-2023), the slides are available [on-line](slides/CoqPL_2023.pdf).
 
 ## SLASH's Doctoral Symposium {#splash2022}
