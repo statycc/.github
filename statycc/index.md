@@ -43,17 +43,21 @@ This project is carried out by
 
 ### Conferences
 
-- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity. [FSCD 2022](https://www.cs.tau.ac.il/~nachumd/FSCD/) 2022, [10.4230/LIPIcs.FSCD.2022.26](https://doi.org/10.4230/LIPIcs.FSCD.2022.26)
-- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller.  Distributing and Parallelizing Non-canonical Loops. 2023. [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387), accepted to [VMCAI 2023](https://vmcai-2023.github.io/). This paper comes with an artifact available on [zenodo](https://zenodo.org/record/7080145) to reproduce the results of [our benchmarkings](https://github.com/statycc/loop-fission). 
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity. 2022. [FSCD 2022](https://www.cs.tau.ac.il/~nachumd/FSCD/)  [10.4230/LIPIcs.FSCD.2022.26](https://doi.org/10.4230/LIPIcs.FSCD.2022.26)
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller.  Distributing and Parallelizing Non-canonical Loops. 2023.
+  [VMCAI 2023](https://vmcai-2023.github.io/) [10.1007/978-3-031-24950-1_1](https://doi.org/10.1007/978-3-031-24950-1_1)
+  and [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387). This paper comes with an artifact available on [zenodo](https://zenodo.org/record/7080145) to reproduce the results of [our benchmarkings](https://github.com/statycc/loop-fission). 
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. pymwp: A Static Analyzer Determining Polynomial Growth Bounds. 2023.
+  [⟨hal-03269121⟩](https://hal.science/hal-03269121), accepted to ATVA 2023. 
 
 ### Workshops
 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Realizing Implicit Computational Complexity. 2022. [⟨hal-03603510v1⟩](https://hal.archives-ouvertes.fr/hal-03603510v1), accepted to [Types 2022](https://types22.inria.fr/).
-- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Certifying Complexity Analysis. 2022. Accepted to [CoqPL 2023](https://popl23.sigplan.org/home/CoqPL-2023).
+- Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Certifying Complexity Analysis. 2023. [⟨hal-04083105v1⟩](https://hal.archives-ouvertes.fr/hal-04083105v1), accepted to [CoqPL 2023](https://popl23.sigplan.org/home/CoqPL-2023).
 
 ### Symposium
 
-- Neea Rusch.  Formally Verified Resource Bounds through Implicit Computational Complexity. [SPLASH Companion 2022]((https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium#splash-doctoral-symposium)), [10.1145/3563768.3565545](https://doi.org/10.1145/3563768.3565545).
+- Neea Rusch.  Formally Verified Resource Bounds through Implicit Computational Complexity. 2022. [SPLASH Companion 2022]((https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium#splash-doctoral-symposium)), [10.1145/3563768.3565545](https://doi.org/10.1145/3563768.3565545).
 
 <!--
 ## Submitted
@@ -97,7 +101,7 @@ Neea Rusch gave two talks at [POPL 2023](https://popl23.sigplan.org/):
 - [*Distributing and Parallelizing Non-canonical Loops*](https://doi.org/10.1007/978-3-031-24950-1_1) during [VMCAI 2023](https://popl23.sigplan.org/home/VMCAI-2023), the slides are available [on-line](slides/VMCAI_2023.pdf), and the presentation was [recorded](https://youtu.be/wZdIblfz6u4).
 - [*Certifying Complexity Analysis*](https://popl23.sigplan.org/details?action-call-with-get-request-type=1&caaf60ffd2c0403395aa7ef4e9196b86action_174265066106e13feef06df9cd37baaa09a5131ef8c=1&__ajax_runtime_request__=1&context=POPL-2023&track=CoqPL-2023-papers&urlKey=2&decoTitle=Certifying-Complexity-Analysis) during [CoqPL 2023](https://popl23.sigplan.org/home/CoqPL-2023), the slides are available [on-line](slides/CoqPL_2023.pdf).
 
-## SLASH's Doctoral Symposium {#splash2022}
+## SPLASH's Doctoral Symposium {#splash2022}
 
 Neea Rusch presented [*Formally Verified Resource Bounds through Implicit Computational Complexity*](https://doi.org/10.1145/3563768.3565545) at [SPLASH 2022](https://2022.splashcon.org/)'s [Doctoral Symposium](https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium), the slides are available [on-line](slides/SPLASH_2022.pdf).
 

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+<meta name="author" content="Clément Aubert" />
+<meta name="author" content="Thomas Rubiano" />
+<meta name="author" content="Neea Rusch" />
+<meta name="author" content="Thomas Seiller" />
+<meta name="keywords" content="Static Program Analysis, Automatic Complexity Analysis, Program Verification" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<title>pymwp: A Static Analyzer Determining Polynomial Growth Bounds</title>
+<style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+html {
+    line-height: 1.5;
+    background-color: #fdfdfd;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 56em;
+    padding: 70px 50px 6rem 50px;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.4em;
+}
+
+h5, h6 {
+    font-size: 1em;
+    font-style: italic;
+}
+
+h6 {
+    font-weight: normal;
+}
+
+p {
+    margin: 1em 0;
+}
+
+header {
+    padding-top: 2em;
+    margin-bottom: 4em;
+    text-align: center;
+}
+
+kbd, pre, samp, code {
+    font-family: "Source Code Pro", "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
+}
+
+pre {
+    margin: 1em 0;
+    overflow: auto;
+}
+
+pre code {
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    overflow-wrap: normal;
+    background: transparent;
+}
+
+section p code, section table code, section li code {
+    padding: 0.1em 0.4em;
+    margin: 0 0.1em;
+    color: rgb(31, 35, 40);
+    font-size: 85%;
+    border-radius: 6px;
+    background: rgba(175, 184, 193, 0.2);
+    display: inline-block;
+}
+
+
+ol, ul {
+    padding-left: 1.7em;
+}
+
+li > ol, li > ul {
+    margin-top: 0;
+}
+
+hr {
+    background-color: #1a1a1a;
+    border: none;
+    height: 1px;
+    margin: 2rem 0;
+}
+
+.navbar {
+    box-shadow: 0 0 .2rem #0000001a, 0 .2rem .4rem #0003;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .95);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    padding-left: .75em;
+}
+
+.subtitle {
+    font-size: 1.4em;
+}
+
+.display.math {
+    display: block;
+    text-align: center;
+    margin: 0.5rem auto;
+}
+
+pre.sourceCode {
+    background: #ECEFF199;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #CFD8DC99;
+}
+
+pre.console {
+    background-color: rgb(40, 44, 52);
+    color: #fff;
+    font-weight: 600;
+    padding: .85em 1em;
+    border-radius: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+}
+
+pre.console::after {
+    text-transform: uppercase;
+    font-family: var(--bs-body-font-family);
+    position: absolute;
+    top: 8px;
+    right: 1em;
+    color: #fff;
+    transition: opacity 150ms ease-in;
+    font-weight: 400;
+    font-size: 10px;
+    border: 1px dotted #fff9;
+    border-radius: 3px;
+    padding: 2px 4px;
+    opacity: 0;
+    background-color: rgb(40, 44, 52);
+}
+
+pre.console:not(.copied):hover::after {
+    content: "click to copy";
+    opacity: 1;
+}
+
+pre.console.copied::after {
+    content: "OK ✓";
+    opacity: 1;
+    border-color: transparent;
+    background: var(--bs-success);
+}
+
+code span.co {
+    font-style: normal;
+}
+
+code span.dt {
+    color: #a626a4 !important;
+}
+
+code span.cf {
+    color: #4078f2 !important;
+}
+
+code span.dv {
+    color: #D5004F !important;
+}
+
+section > h1, section > h2 {
+    margin-top: 0;
+    padding-top: calc(56px + 0.5em);
+}
+
+h3 > .header-section-number,
+h4 > .header-section-number {
+    display: none;
+}
+
+h3[data-number] {
+    font-weight: 300;
+}
+
+h3 .bi {
+    margin-right: .75em;
+    font-size: 80%;
+    color: var(--bs-gray-600);
+}
+
+#introduction > h1 {
+    display: none
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 0.95em;
+        padding: calc(1em + 56px) 1em 1em;
+    }
+
+    header {
+        padding-top: 1.2em;
+    }
+
+    .navbar-brand {
+        padding-left: 0;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1.2em;
+    }
+}
+
+@media print {
+    body {
+        color: black;
+        background-color: transparent;
+        font-size: 12pt;
+        padding: 50px;
+    }
+
+    .navbar, .challenge {
+        display: none !important;
+    }
+
+    h1, h2, h3, h4, h5, h6, section > h1, section > h2 {
+        margin-top: 1em;
+        padding-top: 0;
+        page-break-after: avoid;
+    }
+
+    section h1 {
+        font-size: 2em;
+    }
+
+    section h2 {
+        font-size: 1.6em;
+    }
+
+    section h3 {
+        font-size: 1.35em;
+    }
+
+    section h4 {
+        font-size: 1.25em;
+    }
+
+    header {
+        padding-top: 0;
+        margin-bottom: 4em;
+    }
+
+    p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    body > div > section:not(:first-child):not(:last-child),
+    body > div > section:not(:first-child):not(:nth-child(2)) > section {
+        page-break-before: always;
+    }
+
+    body > div > section > section {
+        margin-top: 0;
+    }
+
+    #introduction > h1, #solution.collapse:not(.show) {
+        display: block !important;
+    }
+}</style>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="background-color: #546d78">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">pymwp user guide</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+        <li class="nav-item">
+          <a class="nav-link" href="#title-block-header">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#installation">Installation</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Examples
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#binary-assignment">Binary Assignment</a></li>
+            <li><a class="dropdown-item" href="#exponential-program">Exponential Program</a></li>
+            <li><a class="dropdown-item" href="#while-analysis">While Analysis</a></li>
+            <li><a class="dropdown-item" href="#inf-prog">Infinite While</a></li>
+            <li><a class="dropdown-item" href="#challenge-example">Challenge Program</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#learn-more">Learn More</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <li class="nav-item">
+          <a class="nav-link" download href="guide.pdf"><i class="bi bi-download"></i> &nbsp; PDF</a>
+        </li>
+        <li class="nav-item"><a target="blank" rel="nofollow noreferrer"
+                href="https://github.com/statycc/pymwp" class="nav-link">Source Code ↗</a></li>
+      </ul>
+    </div>
+  </div>
+</nav><header id="title-block-header">
+<h1 class="title">pymwp: A Static Analyzer Determining Polynomial Growth Bounds</h1>
+<p class="subtitle">Tool User Guide</p>
+</header>
+<div>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>pymwp (“pai m-w-p”) is a tool for automatically performing static analysis on programs written in a subset of the C language. <!-- [ˈpaɪ.m.w.p] requires some additional features to typeset correctly.--> It analyzes resource usage and determines if program variables’ growth rates are no more than polynomially related to their inputs sizes.</p>
+<p>The theoretical foundations are described in paper the “<em>mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity</em>” (cf. <a href="#learn-more">“Learn More”</a> for additional references and links). The technique is generic and applicable to any imperative language. pymwp is an implementation demonstrating this technique concretely on C programs. The technique is originally inspired by “<em>A Flow Calculus of mwp-Bounds for Complexity Analysis</em>”.</p>
+<p>This guide explains pymwp usage and behavior through several examples.</p>
+<section id="property-of-interest" class="level2" data-number="1.1">
+<h2 data-number="1.1"><span class="header-section-number">1.1</span> Property of Interest</h2>
+<p>For an imperative program, the goal is to discover a polynomially bounded data-flow relation, between the <em>initial values</em> of the variables (denoted <code>X1,…,Xn</code>) and its <em>final values</em> (denoted <code>X1',…,Xn'</code>).</p>
+<p>For a program written in C language, this property can be presented as follows.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> main(<span class="dt">int</span> X1, <span class="dt">int</span> X2, <span class="dt">int</span> X3){</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="co">// initial values  ↑</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   <span class="co">/*</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    * various commands involving</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    * variables X1, X2, X3</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    */</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>   <span class="co">// X1&#39;, X2&#39;, X3&#39; (final values)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Question: <span class="math inline">\(\forall n\)</span>, is <span class="math inline">\(\texttt{X}_n \rightsquigarrow \texttt{X}_n^\prime\)</span> polynomially bounded in inputs?</p>
+<p>We answer this question using the mwp-flow analysis, implemented in the pymwp static analyzer.</p>
+</section>
+<section id="what-mwp-flow-analysis-computes" class="level2" data-number="1.2">
+<h2 data-number="1.2"><span class="header-section-number">1.2</span> What mwp-Flow Analysis Computes</h2>
+<p>The mwp-flow analysis works to establish a polynomial growth bound for input variables by applying inference rules to program’s commands.</p>
+<p>Internally, the analysis tracks <em>coefficients</em> representing <em>dependencies</em> between program’s variables. These coefficients (or “flows”) are <span class="math inline">\(0, m, w, p\)</span> and <span class="math inline">\(\infty\)</span>. They characterize how data flows between variables.</p>
+<ul>
+<li><span class="math inline">\(0\)</span> — no dependency</li>
+<li><span class="math inline">\(m\)</span> — maximal (of linear)</li>
+<li><span class="math inline">\(w\)</span> — weak polynomial</li>
+<li><span class="math inline">\(p\)</span> — polynomial</li>
+<li><span class="math inline">\(\infty\)</span> — infinite</li>
+</ul>
+<p>with ordering: <span class="math inline">\(0 &lt; m &lt; w &lt; p &lt; \infty\)</span>. The analysis name also comes from these coefficients.</p>
+<p>After analysis, two outcomes are possible. (A) The program’s variables values can be bounded by a polynomial in the input’s values, or (B) the analysis determines it is impossible to establish such a bound. Due to non-determinism, many derivation paths need to be explored to determine this result.</p>
+<p>The analysis succeeds if – for some derivation – no pair of variables is characterized by <span class="math inline">\(\infty\)</span>-flow. That is, obtaining an <span class="math inline">\(\infty\)</span>-free derivation implies existence of a polynomial growth bound; i.e., the program has the property of interest, or we can say that the program is <em>derivable</em>. The soundness theorem of the mwp-calculus guarantees that if such derivation exists, the program variables’ value growth is polynomially bounded in inputs.</p>
+<p>Program fails the analysis if every derivation contains an <span class="math inline">\(\infty\)</span> coefficient. Then it is not possible to establish polynomial growth bound. For these programs, pymwp reports an <span class="math inline">\(\infty\)</span>-result.</p>
+</section>
+<section id="interpreting-mwp-bounds" class="level2" data-number="1.3">
+<h2 data-number="1.3"><span class="header-section-number">1.3</span> Interpreting mwp-Bounds</h2>
+<p>If the analysis is successful, i.e., polynomial growth bound exists, it is represented using <em>mwp-bounds</em>.</p>
+<p>An mwp-bound is a number theoretic expression of form: <span class="math inline">\(\text{max}(\vec x, poly_1(\vec y)) + poly_2(\vec z)\)</span>.</p>
+<p>Disjoint variable lists <span class="math inline">\(\vec x\)</span>, <span class="math inline">\(\vec y\)</span> and <span class="math inline">\(\vec z\)</span> capture dependencies of an input variable. Dependencies characterized by <span class="math inline">\(m\)</span>-flow are in <span class="math inline">\(\vec x\)</span>, <span class="math inline">\(w\)</span>-flow in <span class="math inline">\(\vec y\)</span>, and <span class="math inline">\(p\)</span>-flow in <span class="math inline">\(\vec z\)</span>. The polynomials <span class="math inline">\(poly_1\)</span> and <span class="math inline">\(poly_2\)</span> are built up from constants, variables, and operators <span class="math inline">\(+\)</span> and <span class="math inline">\(\times\)</span>. Each variable list may be empty and <span class="math inline">\(poly_1\)</span> and <span class="math inline">\(poly_2\)</span> may not be present.</p>
+<p>For multiple input variables, the result is a conjunction of mwp-bounds, one for each input variable.</p>
+<p><strong>Example 1.</strong> Assume program has one input variable named <span class="math inline">\(\texttt{X}\)</span>, and we have obtained a bound: <span class="math inline">\(\texttt{X}&#39; \leq \texttt{X}\)</span>.<br />
+The bound expression means the final value <span class="math inline">\(\texttt{X}&#39;\)</span> depends only on its own initial value <span class="math inline">\(\texttt{X}\)</span>.</p>
+<p><strong>Example 2.</strong> Assume program has two inputs, <span class="math inline">\(\texttt{X}\)</span> and <span class="math inline">\(\texttt{Y}\)</span>, and we obtained a bound: <span class="math inline">\(\texttt{X}&#39; \leq \texttt{X} \land \texttt{Y}&#39; \leq \text{max}(\texttt{X}, 0) + \texttt{Y}\)</span>.</p>
+<ul>
+<li>Final value <span class="math inline">\(\texttt{X}&#39;\)</span> depends on its own initial value <span class="math inline">\(\texttt{X}\)</span>.</li>
+<li>Final value <span class="math inline">\(\texttt{Y}&#39;\)</span> depends on initial values of inputs <span class="math inline">\(\texttt{X}\)</span> and <span class="math inline">\(\texttt{Y}\)</span>.</li>
+<li>The bound expression can be simplified to <span class="math inline">\(\texttt{X}&#39; \leq \texttt{X} \land \texttt{Y}&#39; \leq \texttt{X} + \texttt{Y}\)</span>.</li>
+</ul>
+</section>
+</section>
+<section id="installation" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Installation</h1>
+<p>This section explains how to get started using pymwp. We recommend installing pymwp locally for an interactive tutorial experience.</p>
+<section id="check-environment-requirements" class="level3" data-number="2.0.1">
+<h3 data-number="2.0.1"><span class="header-section-number">2.0.1</span> <i class="bi bi-1-square-fill"></i>Check environment requirements</h3>
+<p>pymwp requires Python runtime 3.7 – 3.11 (current latest).</p>
+<p>To check currently installed version, run:</p>
+<pre class="console"><code>python3 --version </code></pre>
+<p>On systems that default to Python 3 runtime, use <code>python</code> instead of <code>python3</code>.</p>
+<p>Instructions for installing Python for different operating systems can be found at <a href="https://www.python.org/downloads/" target="blank" rel="nofollow noreferrer">python.org ↗</a>.</p>
+</section>
+<section id="install-pymwp" class="level3" data-number="2.0.2">
+<h3 data-number="2.0.2"><span class="header-section-number">2.0.2</span> <i class="bi bi-2-square-fill"></i>Install pymwp</h3>
+<p>Install pymwp from Python Package Index:</p>
+<pre class="console"><code>pip3 install pymwp==0.4.2</code></pre>
+</section>
+<section id="download-examples" class="level3" data-number="2.0.3">
+<h3 data-number="2.0.3"><span class="header-section-number">2.0.3</span> <i class="bi bi-3-square-fill"></i>Download examples</h3>
+<p>Download a set of examples.</p>
+<pre class="console"><code>wget https://github.com/statycc/pymwp/releases/download/0.4.2/examples.zip</code></pre>
+<p>Alternatively, download the set of examples using a web browser:</p>
+<p><a href="https://github.com/statycc/pymwp/releases/download/0.4.2/examples.zip" class="uri">https://github.com/statycc/pymwp/releases/download/0.4.2/examples.zip</a></p>
+</section>
+<section id="unzip-the-examples" class="level3" data-number="2.0.4">
+<h3 data-number="2.0.4"><span class="header-section-number">2.0.4</span> <i class="bi bi-4-square-fill"></i>Unzip the examples</h3>
+<p>Unzip <code>examples.zip</code> using your preferred approach.</p>
+<p>This completes the setup.</p>
+</section>
+</section>
+<section id="examples" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Examples</h1>
+<p>We now demonstrate use of pymwp on several examples. To ease the presentation, we will use multiple command line arguments.</p>
+<ul>
+<li><code>--fin</code> — always run analysis to completion (even on failure)</li>
+<li><code>--info</code> — reduces amount of terminal output to info level</li>
+<li><code>--no_time</code> — omits timestamps from output log</li>
+</ul>
+<p>For a complete list of available command arguments, run:</p>
+<pre class="console"><code>pymwp --help</code></pre>
+<section id="binary-assignment" class="level2" data-number="3.1">
+<h2 data-number="3.1"><span class="header-section-number">3.1</span> Binary Assignment</h2>
+<p>This example shows that assigning a compounded expression to a variable results in correct analysis.</p>
+<section id="analyzed-program-assign_expression.c" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1"><span class="header-section-number">3.1.1</span> Analyzed Program: assign_expression.c</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> foo(<span class="dt">int</span> y1, <span class="dt">int</span> y2){</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    y2 = y1 + y1;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
+<p>It is straightforward to observe that this program has a polynomial growth bound. The precise value of that bound is <span class="math inline">\(\texttt{y1}^\prime = \texttt{y1} \land \texttt{y2}^\prime \leq 2 * \texttt{y1}\)</span>. Although the program is simple, it is interesting because binary operations introduce complexity in program analysis.</p>
+</section>
+<section id="cli-command" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2"><span class="header-section-number">3.1.2</span> CLI Command</h3>
+<p>The current working directory should be the location of unzipped examples from <a href="#installation">Installation</a> Step 4.</p>
+<pre class="console"><code>pymwp basics/assign_expression.c --fin --info --no_time</code></pre>
+<p>Output:</p>
+<pre class="text"><code>INFO (result): Bound: y1&#39; ≤ y1 ∧ y2&#39; ≤ y1
+INFO (result): Bounds: 3
+INFO (result): Total time: 0.0 s (0 ms)
+INFO (file_io): saved result in output/assign_expression.json</code></pre>
+</section>
+<section id="discussion" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3"><span class="header-section-number">3.1.3</span> Discussion</h3>
+<p>The analysis correctly assigns a polynomial bound to the program. The bound obtained by the analyzer is <span class="math inline">\(\texttt{y1}^\prime \leq \texttt{y1} \land \texttt{y2}^\prime \leq \texttt{y1}\)</span>. Comparing to the precise value determined earlier, this bound is correct, because we omit constants in the analysis results.</p>
+<p>Due to non-determinism, the analyzer finds three different derivations that yield a bound. From the <code>.json</code> file, that captures the analysis result in more technical detail, it is possible to determine these three bounds are:</p>
+<ul>
+<li><span class="math inline">\(\texttt{y1}^\prime \leq \texttt{y1} \land \texttt{y2}^\prime \leq \texttt{max(0,0) + y1}\)</span></li>
+<li><span class="math inline">\(\texttt{y1}^\prime \leq \texttt{y1} \land \texttt{y2}^\prime \leq \texttt{max(0,0) + y1}\)</span></li>
+<li><span class="math inline">\(\texttt{y1}^\prime \leq \texttt{y1} \land \texttt{y2}^\prime \leq \texttt{max(0,y1) + 0}\)</span></li>
+</ul>
+<p>They all simplify to <span class="math inline">\(\texttt{y1}^\prime \leq \texttt{y1} \land \texttt{y2}^\prime \leq \texttt{y1}\)</span>. This concludes the obtained result matches the expected result.</p>
+</section>
+</section>
+<section id="exponential-program" class="level2" data-number="3.2">
+<h2 data-number="3.2"><span class="header-section-number">3.2</span> Exponential Program</h2>
+<p>A program computing the exponentiation returns an infinite coefficient, no matter the derivation strategy chosen.</p>
+<section id="analyzed-program-exponent_2.c" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1"><span class="header-section-number">3.2.1</span> Analyzed Program: exponent_2.c</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> foo(<span class="dt">int</span> base, <span class="dt">int</span> exp, <span class="dt">int</span> i, <span class="dt">int</span> result){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (i &lt; exp){</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        result = result * base;</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        i = i + <span class="dv">1</span>;</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>This program’s variable <span class="math inline">\(\texttt{result}\)</span> grows exponentially. It is impossible to find a polynomial growth bound, and the analysis is expected to report <span class="math inline">\(\infty\)</span>-result. This example demonstrates how pymwp arrives to that conclusion.</p>
+</section>
+<section id="cli-command" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2"><span class="header-section-number">3.2.2</span> CLI Command</h3>
+<pre class="console"><code>pymwp infinite/exponent_2.c --fin --info --no_time</code></pre>
+<p>Output:</p>
+<pre class="text"><code>INFO (result): foo is infinite
+INFO (result): Possibly problematic flows:
+INFO (result): base ➔ result ‖ exp ➔ result ‖ i ➔ result ‖ result ➔ result
+INFO (result): Total time: 0.0 s (2 ms)
+INFO (file_io): saved result in output/exponent_2.json</code></pre>
+</section>
+<section id="discussion" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3"><span class="header-section-number">3.2.3</span> Discussion</h3>
+<p>The output shows that the analyzer correctly detects that no bound can be established, and we obtain <span class="math inline">\(\infty\)</span>-result. The output also gives a list of problematic flows. This list indicates all variable pairs, that along some derivation paths, cause <span class="math inline">\(\infty\)</span> coefficients to occur. The arrow direction means data flows from <code>source ➔ target</code>. We can see the problem with this program is the data flowing to <span class="math inline">\(\texttt{result}\)</span> variable. This clearly indicates the origin of the problem, and allows programmer to determine if the issue can be repaired, to improve program’s complexity properties.</p>
+</section>
+</section>
+<section id="while-analysis" class="level2" data-number="3.3">
+<h2 data-number="3.3"><span class="header-section-number">3.3</span> While Analysis</h2>
+<p>A program that shows infinite coefficients for some derivations.</p>
+<section id="analyzed-program-notinfinite_3.c" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1"><span class="header-section-number">3.3.1</span> Analyzed Program: notinfinite_3.c</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> foo(<span class="dt">int</span> X0, <span class="dt">int</span> X1, <span class="dt">int</span> X2, <span class="dt">int</span> X3){</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (X1 == <span class="dv">1</span>){</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        X1 = X2+X1;</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        X2 = X3+X2;</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(X0&lt;<span class="dv">10</span>){</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        X0 = X1+X2;</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>This program contains decision logic, iteration, and multiple variables. Determining if a polynomial growth bound exists is not immediate by inspection. It is therefore an interesting candidate for analysis with pymwp!</p>
+</section>
+<section id="cli-command" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2"><span class="header-section-number">3.3.2</span> CLI Command</h3>
+<pre class="console"><code>pymwp not_infinite/notinfinite_3.c --fin --info --no_time</code></pre>
+<p>Output:</p>
+<pre class="text"><code>INFO (result): Bound: X0&#39; ≤ max(X0,X1)+X2*X3 ∧ X1&#39; ≤ X1+X2 ∧ X2&#39; ≤ X2+X3 ∧ X3&#39; ≤ X3
+INFO (result): Bounds: 9
+INFO (result): Total time: 0.0 s (3 ms)
+INFO (file_io): saved result in output/notinfinite_3.json</code></pre>
+</section>
+<section id="discussion" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3"><span class="header-section-number">3.3.3</span> Discussion</h3>
+<p>Compared to previous examples, the analysis is now getting more complicated. We can observe this in the number of discovered bounds and the form of the bound expression. The number of times the loop iterates, or which branch of the <code>if</code> statement is taken, is not a barrier to determining the result.</p>
+<p>From the bound expression, we can determine the following.</p>
+<ul>
+<li><p><span class="math inline">\(\texttt{X0}\)</span> has the most complicated dependency relation. Its mwp-bound combines the impact of the <code>if</code> statement, the <code>while</code> loop, and the chance that the loop may not execute.</p></li>
+<li><p><span class="math inline">\(\texttt{X1}\)</span> and <span class="math inline">\(\texttt{X2}\)</span> have fairly simple growth dependencies, originating from the <code>if</code> statement.</p></li>
+<li><p><span class="math inline">\(\texttt{X3}\)</span> is the simplest case – it never changes. Therefore, it only depends on itself.</p></li>
+</ul>
+<p>Overall, the analysis concludes the program has a polynomial growth bound.</p>
+</section>
+</section>
+<section id="inf-prog" class="level2" data-number="3.4">
+<h2 data-number="3.4"><span class="header-section-number">3.4</span> Infinite Program</h2>
+<p>A program that shows infinite coefficients for all choices.</p>
+<section id="analyzed-program-infinite_3.c" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1"><span class="header-section-number">3.4.1</span> Analyzed Program: infinite_3.c</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> foo(<span class="dt">int</span> X1, <span class="dt">int</span> X2, <span class="dt">int</span> X3){</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (X1 == <span class="dv">1</span>){</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        X1 = X2+X1;</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        X2 = X3+X2;</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(X1&lt;<span class="dv">10</span>){</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        X1 = X2+X1;</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>If you studied the previous example carefully, you might notice that this example is <em>very similar</em>. There is a subtle differences: variable <span class="math inline">\(\texttt{X0}\)</span> has been removed and its usages changed to <span class="math inline">\(\texttt{X1}\)</span>. This example demonstrates how this seemingly small change impacts the analysis result.</p>
+</section>
+<section id="cli-command" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2"><span class="header-section-number">3.4.2</span> CLI Command</h3>
+<pre class="console"><code>pymwp infinite/infinite_3.c --fin --info --no_time</code></pre>
+<p>Output:</p>
+<pre class="text"><code>INFO (result): foo is infinite
+INFO (result): Possibly problematic flows:
+INFO (result): X1 ➔ X1 ‖ X2 ➔ X1 ‖ X3 ➔ X1
+INFO (result): Total time: 0.0 s (2 ms)
+INFO (file_io): saved result in output/infinite_3.json</code></pre>
+</section>
+<section id="discussion" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3"><span class="header-section-number">3.4.3</span> Discussion</h3>
+<p>We can observe the result is <span class="math inline">\(\infty\)</span>. Thus, even a small change can change the analysis result entirely.</p>
+<p>The output reveals the problem arises from how data flows from source variables <span class="math inline">\(\texttt{X1}\)</span>, <span class="math inline">\(\texttt{X2}\)</span>, and <span class="math inline">\(\texttt{X3}\)</span>, to target variable <span class="math inline">\(\texttt{X1}\)</span>. Observe that even though there is no direct assignment from <span class="math inline">\(\texttt{X3}\)</span> to <span class="math inline">\(\texttt{X1}\)</span>, the analysis correctly identifies this dependency relation, that occurs through <span class="math inline">\(\texttt{X2}\)</span>.</p>
+<p>From the output, we have identified the point and source of failure. Conversely, we know other variable pairs are not problematic. By focusing on how to avoid “too strong” dependencies targeting variable <span class="math inline">\(\texttt{X1}\)</span>, programmer may be able to refactor and improve the program’s complexity properties.</p>
+</section>
+</section>
+<section id="challenge-example" class="level2" data-number="3.5">
+<h2 data-number="3.5"><span class="header-section-number">3.5</span> Challenge Example</h2>
+<p>Try to guess the analysis outcome before determining the result with pymwp.</p>
+<section id="analyzed-program" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1"><span class="header-section-number">3.5.1</span> Analyzed Program</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> foo(<span class="dt">int</span> X0, <span class="dt">int</span> X1, <span class="dt">int</span> X2){</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (X0) {</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>      X2 = X0 + X1;</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>{</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      X2 = X2 + X1;</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    X0 = X2 + X1;</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    X1 = X0 + X2;</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(X2){</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>      X2 = X1 + X0;</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>After seeing the various preceding examples – with and without polynomial bounds – we present the following challenge. By inspection, try to determine if this program is polynomially bounded w.r.t. its input values.</p>
+<p>It is unknown which <code>if</code> branch will be taken, and whether the <code>while</code> loop will terminate, but this is not a problem for determining the result.</p>
+<div class="challenge" style="margin-top:2em">
+<p><strong>Choose.</strong> The program is…</p>
+<div class="form-check">
+<p><input class="form-check-input" type="radio" name="flexRadio" id="P required" required> <label class="form-check-label" for="flexRadioDefault1">Polynomially bounded in inputs</label></p>
+</div>
+<div class="form-check">
+<p><input class="form-check-input" type="radio" name="flexRadio" id="Infinite"> <label class="form-check-label" for="flexRadioDefault2">Infinite</label></p>
+</div>
+<p><br/></p>
+<p><a class="btn btn-primary" data-bs-toggle="collapse" href="#solution" role="button" aria-expanded="true"
+aria-controls="solution">Reveal Solution</a></p>
+</div>
+</section>
+<div id="solution" class="collapse">
+<section id="cli-command" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2"><span class="header-section-number">3.5.2</span> CLI Command</h3>
+<pre class="console"><code>pymwp other/dense_loop.c --fin --no_time --info</code></pre>
+<p>Output:</p>
+<pre class="text"><code>INFO (result): Bound: X0&#39; ≤ max(X0,X2)+X1 ∧ X1&#39; ≤ X0*X1*X2 ∧ X2&#39; ≤ max(X0,X2)+X1
+INFO (result): Bounds: 81
+INFO (result): Total time: 0.0 s (29 ms)
+INFO (file_io): saved result in output/dense_loop.json</code></pre>
+</section>
+<section id="discussion" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3"><span class="header-section-number">3.5.3</span> Discussion</h3>
+<p>Even with just 3 variables we can see—in the obtained bound expression and the number of bounds—that this is a complicated derivation problem. The analyzer determines the program has a polynomial growth bound. Let us reason informally and intuitively why this obtained result is correct.</p>
+<p>We can observe in the bound expression, that all three variables have complicated dependencies on one another; this corresponds to what is also observable in the input program.</p>
+<p>Regarding variables <span class="math inline">\(\texttt{X0}\)</span> and <span class="math inline">\(\texttt{X1}\)</span>, observe there is no command, with either as a target variable, that would give rise to exponential value growth (need iteration). Therefore, they must have polynomial growth bounds.</p>
+<p>Variable <span class="math inline">\(\texttt{X2}\)</span> is more complicated. The program has a <code>while</code> loop performing assignments to <span class="math inline">\(\texttt{X2}\)</span> (potentially problematic), and the <code>while</code> loop may or may not execute.</p>
+<ul>
+<li><p>Case 1: loop condition is initially false. Then, final value of <span class="math inline">\(\texttt{X2}\)</span> depends on the <code>if</code> statement, and in either branch, it will have polynomially bounded growth.</p></li>
+<li><p>Case 2: loop condition true – at least one iteration will occur. The program iteratively assigns values to <span class="math inline">\(\texttt{X2}\)</span> inside the <code>while</code> loop. However, notice the command is loop invariant. No matter how many times the loop iterates, the final value of <span class="math inline">\(\texttt{X2}\)</span> is <span class="math inline">\(\texttt{X1} + \texttt{X0}\)</span>. We already know those two variables have polynomial growth bounds. Therefore, <span class="math inline">\(\texttt{X2}\)</span> also grows polynomially w.r.t. its input values.</p></li>
+</ul>
+<p>This reasoning concurs with the result determined by pymwp.</p>
+</section>
+</div>
+<hr />
+</section>
+</section>
+<section id="learn-more" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Learn More</h1>
+<p>This guide has offered only a <em>very short</em> introduction to mwp-analysis and pymwp.<br />
+If you wish to explore more, have a look at:</p>
+<ul>
+<li><p><a href="https://doi.org/10.4230/LIPIcs.FSCD.2022.26">“<em>mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity</em>”</a><br />
+Describes theoretical foundations behind pymwp.</p></li>
+<li><p><a href="https://doi.org/10.1145/1555746.1555752">“<em>A Flow Calculus of mwp-Bounds for Complexity Analysis</em>”</a><br />
+Original mwp-flow analysis technique.</p></li>
+<li><p><a href="https://statycc.github.io/pymwp">Documentation</a> – Includes information about supported C language features, etc.</p></li>
+<li><p><a href="https://statycc.github.io/pymwp/demo/">Online demo</a> – Run pymwp online on more than 40 examples.</p></li>
+<li><p><a href="https://github.com/statycc/pymwp">Source code</a> – pymwp is open source.</p></li>
+<li><p><a href="https://github.com/statycc/pymwp/blob/main/LICENSE">License</a> – pymwp is licensed under GPLv3.</p></li>
+</ul>
+</section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<script>/* make console text copiable */
+new ClipboardJS('.console', {
+    text: function (trigger) {
+        return trigger.innerText;
+    }
+}).on('success', function (e) {
+    const evt = e.trigger;
+    evt.classList.add('copied')
+    setTimeout(function () {
+        evt.classList.remove('copied');
+    }, 1500)
+});</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
+</body>
+</html>
