@@ -48,7 +48,7 @@ This project is carried out by
   [VMCAI 2023](https://vmcai-2023.github.io/) [10.1007/978-3-031-24950-1_1](https://doi.org/10.1007/978-3-031-24950-1_1)
   and [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387). This paper comes with an artifact available on [zenodo](https://zenodo.org/record/7080145) to reproduce the results of [our benchmarkings](https://github.com/statycc/loop-fission). 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. pymwp: A Static Analyzer Determining Polynomial Growth Bounds. 2023.
-  [⟨hal-03269121⟩](https://hal.science/hal-03269121), accepted to ATVA 2023. 
+  [⟨hal-03269121⟩](https://hal.science/hal-03269121), [accepted to ATVA 2023](https://atva-conference.org/2023/?page_id=34). 
 
 ### Workshops
 
