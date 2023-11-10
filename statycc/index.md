@@ -39,23 +39,20 @@ This project is carried out by
     
 # Papers
 
-## Accepted
-
-### Conferences
+## Conferences
 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. mwp-Analysis Improvement and Implementation: Realizing Implicit Computational Complexity. 2022. [FSCD 2022](https://www.cs.tau.ac.il/~nachumd/FSCD/)  [10.4230/LIPIcs.FSCD.2022.26](https://doi.org/10.4230/LIPIcs.FSCD.2022.26)
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller.  Distributing and Parallelizing Non-canonical Loops. 2023.
-  [VMCAI 2023](https://vmcai-2023.github.io/) [10.1007/978-3-031-24950-1_1](https://doi.org/10.1007/978-3-031-24950-1_1)
-  and [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387). This paper comes with an artifact available on [zenodo](https://zenodo.org/record/7080145) to reproduce the results of [our benchmarkings](https://github.com/statycc/loop-fission). 
+  [VMCAI 2023](https://vmcai-2023.github.io/) [10.1007/978-3-031-24950-1_1](https://doi.org/10.1007/978-3-031-24950-1_1), [⟨hal-03669387⟩](https://hal.archives-ouvertes.fr/hal-03669387). This paper comes with an artifact available on [zenodo](https://zenodo.org/record/7080145) to reproduce the results of [our benchmarkings](https://github.com/statycc/loop-fission). 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. pymwp: A Static Analyzer Determining Polynomial Growth Bounds. 2023.
-  [⟨hal-03269121⟩](https://hal.science/hal-03269121), [accepted to ATVA 2023](https://atva-conference.org/2023/?page_id=34). 
+  [ATVA 2023](https://atva-conference.org/2023/?page_id=34) [10.1007/978-3-031-45332-8_14](https://doi.org/10.1007/978-3-031-45332-8_14), [⟨hal-03269121⟩](https://hal.science/hal-03269121). 
 
-### Workshops
+## Workshops
 
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Realizing Implicit Computational Complexity. 2022. [⟨hal-03603510v1⟩](https://hal.archives-ouvertes.fr/hal-03603510v1), accepted to [Types 2022](https://types22.inria.fr/).
 - Clément Aubert, Thomas Rubiano, Neea Rusch, Thomas Seiller. Certifying Complexity Analysis. 2023. [⟨hal-04083105v1⟩](https://hal.archives-ouvertes.fr/hal-04083105v1), accepted to [CoqPL 2023](https://popl23.sigplan.org/home/CoqPL-2023).
 
-### Symposium
+## Symposium
 
 - Neea Rusch.  Formally Verified Resource Bounds through Implicit Computational Complexity. 2022. [SPLASH Companion 2022]((https://2022.splashcon.org/track/splash-2022-Doctoral-Symposium#splash-doctoral-symposium)), [10.1145/3563768.3565545](https://doi.org/10.1145/3563768.3565545).
 
@@ -76,6 +73,21 @@ This project is carried out by
 - The "Loop Fission Benchmarks", hosted [on gihtub](https://github.com/statycc/loop-fission), experimentally sustain the claims made in *Distributing and Parallelizing Non-canonical Loops*.
 
 # Presentations / Events
+
+## ATVA 2023
+
+Neea Rusch presented [pymwp](https://github.com/statycc/pymwp) at [ATVA 2023](https://atva-conference.org/2023/?page_id=34).
+
+<details>
+<summary>Details</summary>
+
+### Abstract
+
+> **pymwp: A Static Analyzer Determining Polynomial Growth Bounds**  
+> We present pymwp, a static analyzer that automatically computes, if they exist, polynomial bounds relating input and output sizes. In case of exponential growth, our tool detects precisely which dependencies between variables induced it. Based on the sound mwp-flow calculus, the analysis captures bounds on large classes of programs by being non-deterministic and not requiring termination. For this reason, implementing this calculus required solving several non-trivial implementation problems, to handle its complexity and non-determinism, but also to provide meaningful feedback to the programmer. The duality of the analysis result and compositionality of the calculus make our approach original in the landscape of complexity analyzers. We conclude by demonstrating experimentally how pymwp is a practical and performant static analyzer to automatically evaluate variable growth bounds of C programs.
+
+Neea Rusch's slides are available [on-line](slides/ATVA_2023.pdf).
+</details>
 
 ## SCOT 2023
 
