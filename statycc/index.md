@@ -27,8 +27,8 @@ More context can be found in her [PhD research proficiency examination](https://
 This project is carried out by
 
 - American Partner
-    - [Clément Aubert](https://spots.augusta.edu/caubert/)
-    - [Neea Rusch](https://nkrusch.github.io/)
+    - [Clément Aubert](https://aubert.info)
+    - [Neea Rusch](https://neea.pl/)
     - Assya Sellak (until 03/21)
 
 - French Partner
